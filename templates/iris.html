@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Iris Flower Classifier</h1>
-        <form action="/predict" method="post" class="mt-4">
+        <form action="/iris_flower" method="post" class="mt-4">
             <div class="form-group">
                 <label for="sepalLength">Sepal Length</label>
                 <input type="number" step="any" class="form-control" id="sepalLength" name="sepalLength" required>
@@ -28,6 +28,13 @@
             </div>
             <button type="submit" class="btn btn-primary">Predict</button>
         </form>
+        {% if prediction is not none %}
+        <div class="alert alert-info mt-4">
+            Features:  {{ features }}
+            <br/>
+            Prediction: <b>{{ prediction }}<b>
+        </div>
+        {% endif %}
     </div>
 </body>
 </html>
